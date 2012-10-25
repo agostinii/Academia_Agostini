@@ -1,0 +1,32 @@
+create table professor(
+	codprof integer primary key,
+	nome varchar(40),
+	endereco varchar(40),
+	telefone varchar(10),
+	cpf varchar(11),
+	formacao varchar(40)
+);
+
+insert into professor values(1,'João','Av. Assis Brasil 5434','3345-4356','786565745','Educação física (Bacharelado)');
+
+create table aula(
+	codaula integer primary key,
+	codprof integer references professor,
+	tipo varchar(20),
+	capacidade integer,
+	data date
+);
+
+create table marca_aula(
+	codaluno integer references aluno,
+	codaula integer references aula
+);	
+
+create table aluno(
+	codaluno integer primary key,
+	nome varchar(40),
+	endereco varchar(40),
+	telefone varchar(10),
+	cpf integer,
+	data_contrato date
+);
